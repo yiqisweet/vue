@@ -1,0 +1,1 @@
+/** * Created by Randy on 2017/5/27. */module.exports = {    a : 2,    print : function(){        "use strict";        console.log('调用方法');    }}

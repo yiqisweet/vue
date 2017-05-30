@@ -1,0 +1,1 @@
+/** * Created by Randy on 2017/5/27. */// module 是模块的意思  exports 是对外输出的值// module.exports.a = 1; //对外输出的值//// module.exports.print = function(){//     "use strict";//     console.log('调用方法');// }module.exports = {    a : 1,    print : function(){        "use strict";        console.log('调用方法');    }}
