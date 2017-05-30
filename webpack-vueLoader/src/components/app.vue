@@ -1,0 +1,1 @@
+<script>   exports.default = {        el : '#app',        data : function(){            return {                name : 'randy',                age : '20'            }        }   }</script><template>    <div>        <h1>姓名：{{name}}</h1>        <h2>{{age}}</h2>    </div></template><style lang="sass"></style>
