@@ -1,0 +1,1 @@
+var Vue = require('vue/dist/vue.common.js');var Vuex = require('vuex');Vue.use(Vuex);var store = new Vuex.Store({    state : {        count : 0    },    mutations : {        increment: state => state.count++,        decrement: state => state.count--    }})
