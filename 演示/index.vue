@@ -1,0 +1,1 @@
+<complate>    <div class="message">{{message}}</div></complate><script>    new Vue({        data : {            message:'hello world'        }    })</script><style>.message{    color:red;}</style>
