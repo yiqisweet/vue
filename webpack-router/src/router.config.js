@@ -1,0 +1,1 @@
+// 1. 引入组件var Home = require('./pages/Home.vue');var About = require('./pages/About.vue');//2.整合路由module.exports =  [        {            path : '/',            name:'home',            component  : Home        },        {            path : '/about',            name : 'about',            component : About        }    ]

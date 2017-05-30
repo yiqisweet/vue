@@ -1,0 +1,1 @@
+<template>    <div class="wrap_input">        首页    </div></template><script>    module.exports = {        methods : {            go : function(action){            }        }    }</script><style lang="scss">    .wrap_input{        text-align: center;        padding-top: 60%;    }    .wrap_input div {        line-height: 40px;    }</style>
