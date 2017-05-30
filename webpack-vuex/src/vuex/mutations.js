@@ -1,0 +1,1 @@
+/** * Created by Randy on 2017/5/30. */module.exports = {    increment : function(state){        "use strict";        state.count+=1    },    decrement : function(state){        "use strict";        state.count -= 1    },    getText : function(state,data){        "use strict";        state.text = data;    }}

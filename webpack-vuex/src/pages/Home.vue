@@ -1,0 +1,1 @@
+<template>    <div>        <Hello msg="你居然不传slot">            <p>hello</p>        </Hello>    </div></template><script>    var Hello = require('../components/Hello.vue')    module.exports = {        components : {            Hello : Hello        }    }</script><style></style>

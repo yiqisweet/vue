@@ -1,0 +1,1 @@
+/** * Created by Randy on 2017/5/30. */var Home = require('./pages/Home.vue')var About = require('./pages/About.vue')module.exports= [    {        path : '/',        name : 'home',        component :Home    },    {        path : '/about',        name : 'about',        component :About    }]
