@@ -1,0 +1,1 @@
+<template>    <main-layout>        <p>Page not found</p>    </main-layout></template><script>    var MainLayout = require('../layouts/Main.vue');    module.exports = {        components: {            MainLayout        }    }</script>
