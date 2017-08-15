@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<div @click="total += 1">click</div>
+    {{total}}
+    <div @click="destroy">销回</div>
+</div>
+<script>
+    new Vue({
+        el : '#app',
+        data : {
+            total : 1
+        },
+        methods:{
+            destroy:function(){
+                this.$destroy()
+            }
+        },
+//        什么阶段该做什么事儿
+        beforeCreate:function(){
+            console.group('==================实例化之前 =================')
+        },
+        created:function(){
+//            一般在生命周期函数内，做请求数据
+            console.group('==================实例化之后 =================')
+        },
+        beforeMount:function(){
+            console.group('==================挂载之前 =================')
+        },
+        mounted:function(){
+            console.group('==================挂载之后 =================')
+        },
+        beforeUpdate:function(){
+            console.group('==================更新之前 =================')
+        },
+        updated:function(){
+            console.group('==================更新之后 =================')
+        },
+        beforeDestroy:function(){
+            //销回之前，实例仍可用
+            console.group('==================销回之前 =================')
+        },
+        destroyed : function(){
+            //所有事件、监听会被移除和解绑，所以的子实例也会被销回
+            console.group('==================销毁之后 =================')
+        }
+    })
+</script>
+</body>
+</html>

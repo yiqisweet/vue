@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--指令 v- 开头的都是指令 ，v-bind 动态绑定数据 -->
+    <span v-bind:title="date">查看当前时间</span>
+    <div @click="upd">更改</div>
+</div>
+<script>
+
+    new Vue({
+        el : '#app',
+        data : {
+            date : new Date()
+        },
+        methods:{
+            upd:function(){
+                this.date = '123'
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <!--input-->
+    <!--<input type="text" v-model="msg" :value="msg">-->
+    <!--<p>{{msg}}</p>-->
+
+    <!--复选框-->
+    <!--<input type="checkbox" id="Jack" value="Jack" v-model="arr">-->
+    <!--<label for="Jack">Jack</label>-->
+    <!--<input type="checkbox" id="Ben" value="Ben" v-model="arr">-->
+    <!--<label for="Ben">Ben</label>-->
+    <!--<input type="checkbox" id="Randy" value="Randy" v-model="arr">-->
+    <!--<label for="Randy">Randy</label>-->
+    <!--<p>{{arr}}</p>-->
+
+    <!--单选按钮-->
+    <!--<input type="radio" id="Jack" value="Jack" v-model="arr">-->
+    <!--<label for="Jack">Jack</label>-->
+    <!--<input type="radio" id="Ben" value="Ben" v-model="arr">-->
+    <!--<label for="Ben">Ben</label>-->
+    <!--<p>{{arr}}</p>-->
+    
+    <!--选择列表-->
+    <!--<select v-model="arr">-->
+        <!--<option value="Jack">Jack</option>-->
+        <!--<option value="Ben">Ben</option>-->
+        <!--<option value="Randy">Randy</option>-->
+    <!--</select>-->
+    <!--<p>{{arr}}</p>-->
+
+    <!--多选列表-->
+    <!--<select v-model="arr" multiple>-->
+    <!--<option value="Jack">Jack</option>-->
+    <!--<option value="Ben">Ben</option>-->
+    <!--<option value="Randy">Randy</option>-->
+    <!--</select>-->
+    <!--<p>{{arr}}</p>-->
+
+    <!--checkbox 动态绑定-->
+    <input type="checkbox" v-model="toggle" :true-value="a" :false-value="b">
+    <p>{{toggle}}</p>
+
+</div>
+<script>
+    new Vue({
+        el : "#app",
+        data :{
+            msg : '哈哈',
+            arr : [],
+            toggle : 'a',
+            a : '我选中了',
+            b : '我没选中'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,1 +1,0 @@
-/** * Created by Randy on 2017/5/30. */module.exports = {    increment: state => state.count++,    decrement: state => state.count--}

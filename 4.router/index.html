@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.js"></script>
+    <style>
+        .login{
+            border : 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--这个会转化为a标签  to:代表href-->
+    <router-link to="/login">登录页面</router-link>
+    <router-link to="/register">注册页面</router-link>
+
+    <!--这个是路由跳转后的内容填充-->
+    <router-view></router-view>
+</div>
+<script>
+
+    var Login = {
+        template : '<div class="login">登录界面组件</div>'
+    }
+
+    var Register = {
+        template : '<div>注册界面组件</div>'
+    }
+//  整合路由地址
+    var routes = [
+        {
+            path : '/login',
+            component : Login
+        },
+        {
+            path : '/register',
+            component : Register
+        }
+    ]
+
+    var router = new VueRouter({
+        routes
+    })
+
+
+//    写快捷的时候，要注意属性的正确
+    new Vue({
+        el : "#app",
+        router
+    })
+</script>
+</body>
+</html>

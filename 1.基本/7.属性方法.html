@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <input type="text" v-model="a">
+</div>
+<script>
+
+ var app = new Vue({
+        el : '#app',
+        data : {
+            a : 1
+        }
+    })
+//   1、 $data 和构造里的data相同，深等于，改变一个另一个也会改变
+//  console.log(app.$data.a)
+
+///2、 $el  获取DOM根元素，等同于 document.getElementById()
+//    console.log(app.$el.style.background = "red");
+
+ //3、$watch 第一种写法，回调新值和旧值
+//    app.$watch('a',function(newValue,oldValue){
+//        console.log(newValue);
+//        console.log(oldValue);
+//    })
+    //第二种写法，适用于在返回之前，做逻辑处理
+//     app.$watch(function(){
+//         return this.a
+//     },function(newValue,oldValue){
+//         console.log(newValue);
+//         console.log(oldValue);
+//     })
+
+
+ //4、$on 自定义事件，第一个参数是名字，第二个参数是回调
+    app.$on('lyd',function(obj){
+        console.log(obj.name);
+        console.log(obj.age)
+    });
+
+ setTimeout(function(){
+//     触发自定义事件，第一个参数是事件名称，第二个参数是需要的参数
+     app.$emit('lyd',{
+         name : '鲁阳东',
+         age : 18
+     })
+ },2000)
+
+
+</script>
+
+</body>
+</html>

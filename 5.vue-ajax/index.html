@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+</head>
+<body>
+<div id="app">
+<button @click="isLogin">login</button>
+</div>
+<script>
+
+    new Vue({
+        el : "#app",
+        methods:{
+            isLogin (){
+//              then(successcallback,errorcallback)
+                this.$http.get('http://172.168.0.111:3030/data.json').then(function(res){
+                    console.log(res.data.name)
+                },function (res) {
+                    
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

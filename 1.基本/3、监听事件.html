@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- v-on:click 绑定事件，便捷写法 @click -->
+    <button @click="sayHello">click me</button>
+    <button @click="total += 1">增加</button>
+    <p>{{total}}</p>
+</div>
+<script>
+    new Vue({
+        el : '#app',
+        data : {
+            total : 1
+        },
+//        方法
+        methods:{
+            sayHello:function(){
+                alert(1);
+            }
+        }
+    })
+</script>
+</body>
+</html>

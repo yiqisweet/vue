@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .parent{
+            border:1px solid red;
+        }
+        .child{
+            border : 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="parent">
+<my-child>
+    <p slot="header">header</p>
+    <p slot="main">main</p>
+    <p slot="footer">footer</p>
+</my-child>
+</div>
+<script>
+//在最初，slot标签中的任何内容都会被当做备用内容，也就是只有没有要插入的元素时，才会显示备用内容 。
+//    var child = {
+//        template:'<div class="child">' +
+//        '<h1>我是子组件标题</h1>' +
+//        '<slot>我是slot，我只有在没有插入内容的时候才会显示</slot>' +
+//        '</div>'
+//    }
+
+//具名slot
+
+var child = {
+    template:'<div class="child">' +
+    '<header>' +
+    '<slot name="header">我是header的槽</slot>' +
+    '</header>' +
+    '<main>' +
+    '<slot name="main">我是main的槽</slot>' +
+    '</main>' +
+    '<footer>' +
+    '<slot name="footer">我是footer的槽</slot>' +
+    '</footer>' +
+    '</div>'
+}
+
+    new Vue({
+        el:"#app",
+        data:{
+
+        },
+        components:{
+            'my-child':child
+        }
+    })
+</script>
+</body>
+</html>

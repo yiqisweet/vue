@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+
+        .red{
+            color:red;
+        }
+        .blue{
+            color:blue;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <!-- v-bind 缩写 ： 只要是动态数据，必须加 : -->
+    <!--  动态绑定样式，第一种写法，字面量对象 key是样式名，值是true/false  -->
+    <!-- 第二种写法 直接传入对象 -->
+    <!--<span :title="date" :class="{blue:true}">鼠标移入查看</span>-->
+    <!--<span :class="selectClass">样式</span>-->
+    <button @click="addNumber">增加</button>
+    <p :class="selectClass" >{{total}}</p>
+</div>
+<script>
+    new Vue({
+        el : '#app',
+        data : {
+            date : new Date(),
+            selectClass : {
+                red : false,
+                blue : false
+            },
+            total : 1
+        },
+        methods:{
+            //如果想要调用data的数据，必须要用this.
+            addNumber : function(){
+                this.total += 1;
+                if(this.total > 10 && this.total < 20){
+                    this.selectClass.red = true
+                }else if(this.total > 20){
+                    this.selectClass.red = false
+                    this.selectClass.blue = true
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

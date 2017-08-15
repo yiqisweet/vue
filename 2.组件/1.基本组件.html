@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+    .parent{
+        border:1px solid red;
+    }
+    .child{
+        border : 1px solid blue;
+    }
+</style>
+</head>
+<body>
+
+<div id="app" class="parent">
+    我是父组件
+    <my-child></my-child>
+</div>
+<script>
+    //子组件
+    // 1、template里面只能有一个最外层标签
+    // 2、 子组件，你挂载在哪个实例下，才能在哪里用
+    // 3、 组件分为，子作用域和父作用域，在child里面写的所有东西都属于子级作用域
+    var child = {
+        template : '<div class="child">' +
+        '<span>我是子组件</span>' +
+        '<input v-model="msg" />' +
+        '<button @click="click1">get</button>' +
+        '</div>',
+        data : function(){
+            return {
+                msg : ''
+            }
+        },
+        methods:{
+            click1:function(){
+                console.log(this)
+                console.log(this.msg)
+            }
+        }
+    }
+    new Vue({
+        el : "#app",
+        data :{
+
+        },
+        //子组件挂载时命名规范，把驼峰命名，改成 - 链接 myChild  >  my-child，key加单引号
+        components:{
+            'my-child' : child
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+{{msg | upperCase | lowerCase(1,2)}}
+</div>
+<script>
+    new Vue({
+        el : '#app',
+        data : {
+            msg : 'hello'
+        },
+        methods:{
+
+        },
+        filters:{
+//            被过滤的变量，永远是过滤器的第一个参数,可以传递额外参数，可串联过滤器
+          upperCase : function(value){
+              if(!value) return value;
+              return value.toUpperCase();
+          },
+            lowerCase:function(value,num1,num2){
+              console.log(arguments)
+              if(!value) return value
+                return value.toLowerCase()
+            }
+        }
+    })
+</script>
+</body>
+</html>

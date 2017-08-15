@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .parent{
+            border:1px solid red;
+        }
+        .child{
+            border : 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="parent">
+    我是父组件
+    <!--如果子组件设置的props的名字是驼峰，那么在传参的时候要改成 - 链接方式 -->
+    <!--不允许在子组件标签上直接使用子组件内的数据-->
+    <my-child :my-message="abc"></my-child>
+
+    <input type="text" v-model="abc">
+</div>
+<script>
+    //props
+    //1、父子组件应该保持解耦，不允许在子组件内直接使用父组件数据
+    //2、要显示的设置子组件所期待获得的数据
+    //3、调用时跟调用data一毛一样
+    var child = {
+        //如果不需要验证，可以用数组方式
+        //如果要用验证需要对象,type default,required
+        props:{
+            myMessage : {
+                type : String,
+                required : true  //必传
+            },
+            myNumber : {
+                type : Number,
+                default : 100 //默认
+            },
+            // 数组／对象的默认值应当由一个工厂函数返回
+            propE: {
+                type: Object,
+                default: function () {
+                    return { message: 'hello' }
+                }
+            },
+            // 自定义验证函数
+            propF: {
+                validator: function (value) {
+                    return value > 10
+                }
+            }
+        },
+        template:'<div class="child">' +
+        '<span>{{myMessage}}</span>' +
+        '<span>{{myNumber}}</span>' +
+        '</div>',
+        data : {
+            isShows : false
+        }
+    }
+
+    //父组件要给子组件传递数据，子组件需要将它内部发生的事情告知给父组件
+    new Vue({
+        el : "#app",
+        data : {
+            abc : "我是父组件的数据",
+            isShow : true
+        },
+        components:{
+            'my-child':child
+        }
+    })
+</script>
+</body>
+</html>

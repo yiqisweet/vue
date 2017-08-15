@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .parent{
+            border:1px solid red;
+        }
+        .child{
+            border : 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app" class="parent">
+    我在父级
+    <my-child :message="msg" @dispatch="callBackMsg"></my-child>
+</div>
+<script>
+
+
+
+//    app.$on('dispatch',callBackMsg)
+//    app.$emit('dispatch',{name:'123'})
+
+
+    //子级触发
+//    send:function(){
+//        this.$emit('dispatch',{
+//            name : this.msg
+//        })
+//    }
+//
+//    //在父级作用域内监听子级触发的自定义事件，回调为父级函数
+//    @dipatch="callBackMsg"
+
+    var child = {
+        props:{
+            message : {
+                type : String
+            }
+        },
+        template:'<div class="child">' +
+        '<div>{{message}}</div>' +
+        '<button @click="send">send</button>' +
+        '</div>',
+        data : function(){
+            return {
+                name : '张三'
+            }
+        },
+        methods:{
+            send:function(){
+                if(this.message){
+                    this.$emit('dispatch',{
+                        type : 1
+                    })
+                }
+
+            }
+        }
+    }
+
+//父组件要给子组件传递数据，子组件需要将它内部发生的事情告知给父组件
+    new Vue({
+        el : "#app",
+        data : {
+            msg : '我是传递给子级的父级数据',
+            name : ''
+        },
+        components:{
+            'my-child':child
+        },
+        methods:{
+            callBackMsg : function(obj){
+                 if(obj.type == 1){
+                     this.msg = "好的，子组件，我已经收到你的消息"
+                 }
+            }
+        }
+    })
+</script>
+</body>
+</html>

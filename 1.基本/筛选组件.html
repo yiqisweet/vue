@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.0.0/vue.js"></script>
+    <style>
+        .chlid{padding:2px 5px;margin:0 5px;border:1px solid #000;}
+        .chlid.active{border:1px solid red;}
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>筛选</h1>
+    <item :model="typelist"></item>
+
+</div>
+<script>
+
+    var list = {
+        list:[
+            {
+                id:10,
+                money:"A(10万)"
+            },
+            {
+                id:20,
+                money:"B(20万)"
+            },
+            {
+                id:30,
+                money:"C(30万)"
+            },
+            {
+                id:5,
+                money:"D(5万)"
+            },
+            {
+                id:1,
+                money:"E(1万)"
+            },
+            {
+                id:15,
+                money:"AB(15万)"
+            },
+            {
+                id:22,
+                money:"AC(22万)"
+            },
+            {
+                id:50,
+                money:"AD(50万)"
+            },
+            {
+                id:120,
+                money:"AE(120万)"
+            }
+        ]
+    };
+    var tylist = {
+        tylist:[
+            {
+                lable:"小于5万",
+                value:"5"
+            },
+            {
+                lable:"5万-10万",
+                value:"5-10"
+            },
+            {
+                lable:"10万-15万",
+                value:"10-15"
+            },
+            {
+                lable:"15万-20万",
+                value:"15-20"
+            },
+            {
+                lable:"20万-25万",
+                value:"20-25"
+            },
+            {
+                lable:"大于25",
+                value:"25"
+            }
+        ]
+    };
+    Vue.component("item",{
+         props:{
+             model:{
+                 type:Object
+             }
+         },
+         template:'<div>'+'价格:'+
+                 '<span v-for="v in model">{{v.lable}}</span>'+
+                 '</div>'
+
+    });
+    new Vue({
+        el:"#app",
+        data:{
+            list:list,
+            typelist:tylist,
+            price:""
+        }
+
+    })
+</script>
+</body>
+</html>

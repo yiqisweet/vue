@@ -1,1 +1,0 @@
-<template>    <main-layout>        <p>Welcome home</p>    </main-layout></template><script>    var MainLayout = require('../layouts/Main.vue');  module.exports ={        components: {            MainLayout        }    }</script>

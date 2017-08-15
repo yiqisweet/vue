@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--输出变量方式，跟ng一样，两个大括号包围-->
+{{msg}}
+</div>
+<div id="app2"></div>
+<script>
+    // 可以使用变量赋值，也可以直接new，加和加的区别，就是一个页面有多个或者一个vue的区别
+//   每一个vue构造其实也叫做组件
+//    组件： 一个独立的同时也是完整的一个“页面”
+   var app = new Vue({
+       // el : 绑定根元素
+        el : '#app',
+       //data ： 数据，对象格式，数据驱动视图，声明渲染
+        data : {
+            msg : 'hello world'
+        }
+    })
+
+
+</script>
+
+
+</body>
+</html>
