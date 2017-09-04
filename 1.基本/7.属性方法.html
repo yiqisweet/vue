@@ -21,24 +21,24 @@
             a : 1
         }
     })
-//   1、 $data 和构造里的data相同，深等于，改变一个另一个也会改变
-//  console.log(app.$data.a)
+  1、 $data 和构造里的data相同，深等于，改变一个另一个也会改变
+ console.log(app.$data.a)
 
-///2、 $el  获取DOM根元素，等同于 document.getElementById()
-//    console.log(app.$el.style.background = "red");
+2、 $el  获取DOM根元素，等同于 document.getElementById()
+   console.log(app.$el.style.background = "red");
 
- //3、$watch 第一种写法，回调新值和旧值
-//    app.$watch('a',function(newValue,oldValue){
-//        console.log(newValue);
-//        console.log(oldValue);
-//    })
-    //第二种写法，适用于在返回之前，做逻辑处理
-//     app.$watch(function(){
-//         return this.a
-//     },function(newValue,oldValue){
-//         console.log(newValue);
-//         console.log(oldValue);
-//     })
+ 3、$watch 第一种写法，回调新值和旧值
+   app.$watch('a',function(newValue,oldValue){
+       console.log(newValue);
+       console.log(oldValue);
+   })
+    第二种写法，适用于在返回之前，做逻辑处理
+    app.$watch(function(){
+        return this.a
+    },function(newValue,oldValue){
+        console.log(newValue);
+        console.log(oldValue);
+    })
 
 
  //4、$on 自定义事件，第一个参数是名字，第二个参数是回调
