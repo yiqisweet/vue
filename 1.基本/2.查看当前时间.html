@@ -15,12 +15,13 @@
     <div @click="upd">更改</div>
 </div>
 <script>
-
+ //可直接new vue操作
     new Vue({
         el : '#app',
         data : {
             date : new Date()
         },
+        //定义方法
         methods:{
             upd:function(){
                 this.date = '123'
