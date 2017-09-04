@@ -9,40 +9,23 @@
     <script src="../js/vue.js"></script>
 </head>
 <body>
-
 <div id="app">
-
     <ul>
         <!--for in 循环指令 -->
         <li v-for="item in list">
             {{item.id +':'+ item.name }}
         </li>
     </ul>
-    <span>
-        {{a + b}}
-    </span>
-
 </div>
 <script>
 new Vue({
     el : "#app",
     data : {
         list : [
-            {
-                id : 0,
-                name : '张三'
-            },
-            {
-                id : 1,
-                name : '李四'
-            },
-            {
-                id : 2,
-                name : '王五'
-            }
-        ],
-        a : 1,
-        b : 2
+            {id : 0,name : '张三'},
+            {id : 1,name : '李四'},
+            {id : 2,name : '王五'}
+        ]
     }
 })
 </script>
